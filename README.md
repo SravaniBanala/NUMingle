@@ -1,4 +1,4 @@
-Title - 
+Title - NEU Mingle
 
 Team Members -
 1. Sravani Banala          Email - banala.sr@northeastern.edu
