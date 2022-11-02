@@ -1,3 +1,28 @@
+Title - 
+
+Team Members -
+1. Sravani Banala          Email - banala.sr@northeastern.edu
+2. Naiya Adatiya           Email - adatiya.n@northeastern.edu
+3. Ganesh Bhagwat Patil    Email - patil.gan@northeastern.edu
+4. Keerthana Panyam        Email - panyam.k@northeastern.edu
+
+
+-----------------------------------------------------------------------------------------------------------------
+## Project Description:
+The idea is to develop a website which will allow Northeastern Students to interact and collaborate with their peers,Seniors and seek guidance from Alumnis. All users can join clubs and Students can join courses of their interest. Students can plan their tasks  and register for recommended events through Calender Interface.
+
+User can be assisted through chatbot Window for easier user interface as well as diretly communitcate with other users uing the chatbox feature. Active discussions on dashboard with Users.
+
+-------------------------------------------------------------------------------------------------------------------
+## Features:
+1. Login
+2. SignUp
+3. Chat bot
+4. Notification
+5. Dashboard
+6. Chat Window/Lobby
+7. Calender and Task Planner
+
 ---------------------------------------------------------------------------------------------------------------------
 ## User Stories:
 
@@ -68,8 +93,10 @@ As a Mentor
 
 ----------------------------------------------------------------------------------------------------------------------
 
-Class diagram:
+Class diagram:https://github.com/GaneshPatil21/final-project-webd/blob/main/DomainDiagram.png
 
 ![Class Diagram]
 
 ----------------------------------------------------------------------------------------------------------------------
+
+
