@@ -9,7 +9,10 @@ const EventSchema = new mongoose.Schema({
     type: String,
     required: [true, "Can't be blank"]
   },
-  
+  latlng: {
+    type: Object,
+    //required: [true, "Can't be blank"]
+  },
 
   date: {
     type: Date,

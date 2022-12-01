@@ -6,5 +6,5 @@ const getAllEvents = async (req, res) => {
 
 }
 
-module.exports = {getAllEvents} 
+module.exports = {} 
 
