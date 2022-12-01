@@ -26,6 +26,32 @@ function Connections() {
 
     }
 
+    function removeConnection(member) {
+        console.log(" Button - clicked - createConnection")
+        const payload = {
+            sender: user,
+            receiver: member
+        }
+        const removeUser = async () => {
+            const raw = await fetch("http://localhost:5001/connect/removeConnection", {
+                method: "POST",
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            const data = await raw.json();
+            fetchConnections()
+            if (data.hasOwnProperty('err')) {
+                alert(data.err)
+            }
+        }
+        removeUser()
+
+        // refresh Connections
+
+    }
+
 
   return (
     <>
@@ -40,8 +66,8 @@ function Connections() {
                 <div>
                     <img src={n.picture} className="member-status-img" />
                     {n.name}
-                    </div>
-                
+                </div>
+                <button class="btn btn-danger" onClick={ () => { removeConnection(n) }}>Remove</button>
             </div>
             
         ))}
