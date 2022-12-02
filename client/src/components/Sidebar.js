@@ -44,6 +44,29 @@ function Sidebar() {
         setMembers(payload);
     });
 
+    function getRooms() {
+        fetch("http://localhost:5001/rooms")
+            .then((res) => res.json())
+            .then((data) => setRooms(data));
+    }
+
+    function orderIds(id1, id2) {
+        if (id1 > id2) {
+            return id1 + "-" + id2;
+        } else {
+            return id2 + "-" + id1;
+        }
+    }
+
+    function handlePrivateMemberMsg(member) {
+        setPrivateMemberMsg(member);
+        const roomId = orderIds(user._id, member._id);
+        joinRoom(roomId, false);
+    }
+
+    if (!user) {
+        return <></>;
+    }
     return (
         <>
             {isLobby && 
