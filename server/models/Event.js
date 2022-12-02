@@ -13,7 +13,10 @@ const EventSchema = new mongoose.Schema({
     type: Object,
     //required: [true, "Can't be blank"]
   },
-
+  registeredUsers: {
+    type: Array,
+    default: []
+  },
   date: {
     type: Date,
     //required: [true, "Can't be blank"]
