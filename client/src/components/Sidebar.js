@@ -27,6 +27,19 @@ function Sidebar() {
         dispatch(resetNotifications(room));
     }
 
+    socket.off("notifications").on("notifications", (room) => {
+        if (currentRoom != room) dispatch(addNotifications(room));
+    });
+
+    useEffect(() => {
+        if (user) {
+            setCurrentRoom("general");
+            getRooms();
+            socket.emit("join-room", "general");
+            socket.emit("new-user");
+        }
+    }, []);
+
     socket.off("new-user").on("new-user", (payload) => {
         setMembers(payload);
     });
