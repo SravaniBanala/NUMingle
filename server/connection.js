@@ -8,3 +8,7 @@ require('dotenv').config();
 mongoose.connect(`mongodb://localhost:27017/temp_2`, ()=> {
   console.log('connected to mongodb')
 })
+//mongodb+srv://Numingle:Numingle@123@cluster0.7jlpucw.mongodb.net/?retryWrites=true&w=majority
+// mongoose.connect(`mongodb+srv://Numingle:Numingle@123@cluster0.7jlpucw.mongodb.net/?retryWrites=true&w=majority`, ()=> {
+//   console.log('connected to mongodb')
+// })

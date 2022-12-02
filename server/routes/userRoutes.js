@@ -1,12 +1,14 @@
 const router = require('express').Router();
 const User = require('../models/User');
+const {getAllUsers} = require('../controllers/connectController')
 
-// creating user
+
+// signup creating user
 router.post('/', async(req, res)=> {
   try {
-    const {name, email, password, picture} = req.body;
+    const {name, nuid, email, password, picture, type} = req.body;
     console.log(req.body);
-    const user = await User.create({name, email, password, picture});
+    const user = await User.create({name, nuid, email, password, picture, type});
     res.status(201).json(user);
   } catch (e) {
     let msg;
@@ -33,6 +35,7 @@ router.post('/login', async(req, res)=> {
       res.status(400).json(e.message)
   }
 })
+
 
 
 module.exports = router
