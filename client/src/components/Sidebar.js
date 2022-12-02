@@ -13,6 +13,23 @@ function Sidebar() {
     //to toggle sidebar for chat and lobby
     const { isChat, isLobby } = useContext(AppContext);
 
+    function joinRoom(room, isPublic = true) {
+        if (!user) {
+            return alert("Please login");
+        }
+        socket.emit("join-room", room, currentRoom);
+        setCurrentRoom(room);
+
+        if (isPublic) {
+            setPrivateMemberMsg(null);
+        }
+        // dispatch for notifications
+        dispatch(resetNotifications(room));
+    }
+
+    socket.off("new-user").on("new-user", (payload) => {
+        setMembers(payload);
+    });
 
     return (
         <>
