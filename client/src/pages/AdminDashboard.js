@@ -9,6 +9,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 function AdminDashboard() {
     console.log("In Admin Dashboard")
     const user = useSelector((state) => state.user);
+    const { setAllEvents } = useContext(AppContext);
 
     function fetchAllEvents() {
        
