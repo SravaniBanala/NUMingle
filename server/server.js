@@ -66,6 +66,14 @@ io.on('connection', (socket)=> {
     io.emit('new-user', members)
   })
 
+  socket.on('join-room', async(newRoom, previousRoom)=> {
+    socket.join(newRoom);
+    socket.leave(previousRoom);
+    let roomMessages = await getLastMessagesFromRoom(newRoom);
+    roomMessages = sortRoomMessagesByDate(roomMessages);
+    socket.emit('room-messages', roomMessages)
+  })
+
 })
 
 
