@@ -20,6 +20,14 @@ function Dashboard() {
         localStorage.setItem('isChat', true);
         localStorage.setItem('isLobby', false);
     }
+    function setLobby() {
+        setIsChat(false); 
+        setIsLobby(true);
+        localStorage.setItem('isChat', false);
+        localStorage.setItem('isLobby', true);
+    }
+    
+    
     
 
     return (
@@ -27,6 +35,59 @@ function Dashboard() {
             <div className="dashboard-title">
                 <h1>Dashboard</h1>
             </div>
+            <Container className="dashboard-container">
+                <Row md={3}>
+                    <Col md={3}>
+                        <LinkContainer to="/profile" >
+                            <div className="dashboard-tile">
+                                <i class="fas fa-edit fa-5x"></i>
+                                <h4 className="tile-title">Update Profile</h4>
+                            </div>
+                        </LinkContainer>
+                    </Col>
+                    <Col md={3}>
+                        <LinkContainer to="/connect" onClick={ () => {setupConnectionLists()}}>
+                            <div className="dashboard-tile">
+                                <i class="fa-solid fa-link fa-5x"></i>
+                                <h4>Connect</h4>
+                            </div>
+                        </LinkContainer>
+                    </Col>
+                    <Col md={3}>
+                        <LinkContainer to="/chat" onClick={setChat}>
+                            <div className="dashboard-tile">
+                                <i class="fa-regular fa-comments fa-5x"></i>
+                                <h4 className="tile-title">Chat</h4>
+                            </div>
+                        </LinkContainer>
+                    </Col>
+                    <Col md={3}>
+                        <LinkContainer to="/alumini" onClick={setLobby}>
+                            <div className="dashboard-tile">
+                                <i class="fa-solid fa-users fa-5x"></i>
+                                <h4 className="tile-title">Career Lobby</h4> 
+                            </div>
+                        </LinkContainer>    
+                    </Col>
+                </Row>
+                
+                <Row md={3}>
+                    <Col md={3}>
+                        <LinkContainer to="/events" onClick={fetchAllEvents}>
+                            <div className="dashboard-tile">
+                                <i class="fa-solid fa-magnifying-glass-location fa-5x"></i>
+                                <h4 className="tile-title">Events</h4> 
+                            </div>
+                        </LinkContainer>
+                    </Col>
+                
+                      
+
+                </Row>
+
+
+            </Container>
+
         </div>
     );
 }
