@@ -12,7 +12,12 @@ function AdminDashboard() {
     const { setAllEvents } = useContext(AppContext);
 
     function fetchAllEvents() {
-       
+        const fetchAllEvents = async () => {
+            const raw = await fetch("http://localhost:5001/events/getAllEvents", { method: "GET" })
+            const data = await raw.json();
+            console.log("fetchAllEvents resp -> ", data)
+            setAllEvents(data)
+        }
         fetchAllEvents()
     }
 
