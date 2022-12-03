@@ -15,7 +15,8 @@ const addEvent = async (req, res) => {
         res.status(201).json({sucess: "Event Added Successfully"});
       } catch (e) {
         let msg = "Error Occured"
-
+        console.log(e);
+        res.status(400).json(msg)
       }
 }
 module.exports = {getAllEvents, addEvent} 
