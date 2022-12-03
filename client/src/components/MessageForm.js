@@ -9,6 +9,22 @@ function MessageForm() {
     const user = useSelector((state) => state.user);
     const { socket, currentRoom, setMessages, messages, privateMemberMsg } = useContext(AppContext);
     const messageEndRef = useRef(null);
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages]);
+
+    function getFormattedDate() {
+        const date = new Date();
+        const year = date.getFullYear();
+        let month = (1 + date.getMonth()).toString();
+
+        month = month.length > 1 ? month : "0" + month;
+        let day = date.getDate().toString();
+
+        day = day.length > 1 ? day : "0" + day;
+
+        return month + "/" + day + "/" + year;
+    }
     
     return (
         <>
