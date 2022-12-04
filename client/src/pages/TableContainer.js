@@ -7,7 +7,6 @@ import {
   usePagination,
 } from 'react-table';
 import { Table, Row, Col, Button, Input, CustomInput } from 'reactstrap';
-import { Filter, DefaultColumnFilter } from './filters';
 
 const TableContainer = ({ columns, data, renderRowSubComponent }) => {
   const {
@@ -25,13 +24,11 @@ const TableContainer = ({ columns, data, renderRowSubComponent }) => {
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageIndex, pageSize },
   } = useTable(
     {
       columns,
       data,
       defaultColumn: { Filter: DefaultColumnFilter },
-      initialState: { pageIndex: 0, pageSize: 10 },
     },
     useFilters,
     useSortBy,
