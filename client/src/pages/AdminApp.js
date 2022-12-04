@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import {
   Container,
-  Card,
+  Card,   
   CardImg,
   CardText,
   CardBody,
@@ -9,6 +9,7 @@ import {
 } from 'reactstrap';
 import TableContainer from './TableContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { SelectColumnFilter } from './filters';
 
 const AdminApp = () => {
   const [data, setData] = useState([]);
@@ -27,12 +28,16 @@ const AdminApp = () => {
     const fetchAllUsers = async () => {
       const raw = await fetch("http://localhost:5001/connect/getAllUsers", {method: "GET"})
       const data = await raw.json();
+      setData(data);
+      console.log(data);
       // localStorage.setItem('allUsers', JSON.stringify(data) );
 
   }
   fetchAllUsers();
 
   }, []);
+
+
 
   const columns = useMemo(
     () => [
