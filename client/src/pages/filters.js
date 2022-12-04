@@ -9,23 +9,23 @@ export const Filter = ({ column }) => {
   );
 };
 
-export const DefaultColumnFilter = ({
-  column: {
-    filterValue,
-    setFilter,
-    preFilteredRows: { length },
-  },
-}) => {
-  return (
-    <Input
-      value={filterValue || ''}
-      onChange={(e) => {
-        setFilter(e.target.value || undefined);
-      }}
-      placeholder={`search (${length}) ...`}
-    />
-  );
-};
+// export const DefaultColumnFilter = ({
+//   column: {
+//     filterValue,
+//     setFilter,
+//     preFilteredRows: { length },
+//   },
+// }) => {
+//   return (
+//     <Input
+//       value={filterValue || ''}
+//       onChange={(e) => {
+//         setFilter(e.target.value || undefined);
+//       }}
+//       placeholder={`search (${length}) ...`}
+//     />
+//   );
+// };
 
 export const SelectColumnFilter = ({
   column: { filterValue, setFilter, preFilteredRows, id },
@@ -38,4 +38,21 @@ export const SelectColumnFilter = ({
   //   return [...options.values()];
   // }, [id, preFilteredRows]);
 
+  // return (
+  //   // <Input
+  //   //   id='custom-select'
+  //   //   type='select'
+  //   //   value={filterValue}
+  //   //   onChange={(e) => {
+  //   //     setFilter(e.target.value || undefined);
+  //   //   }}
+  //   // >
+  //   //   <option value=''>All</option>
+  //   //   {options.map((option) => (
+  //   //     <option key={option} value={option}>
+  //   //       {option}
+  //   //     </option>
+  //   //   ))}
+  //   // </Input>
+  // );
 };

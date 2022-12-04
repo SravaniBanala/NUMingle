@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import {
   Container,
-  Card,   
+  Card,
   CardImg,
   CardText,
   CardBody,
@@ -37,7 +37,29 @@ const AdminApp = () => {
 
   }, []);
 
-
+  const renderRowSubComponent = (row) => {
+    const {
+     name,
+      picture,
+      nuid,
+      email
+    } = row.original;
+    return (
+      <Card style={{ width: '18rem', margin: '0 auto' }}>
+        <CardImg top src={picture} alt='Card image cap' />
+        <CardBody>
+          <CardTitle>
+            <strong>{name}</strong>
+          </CardTitle>
+          <CardText>
+            <strong>NUID</strong>: {nuid} <br />
+            <strong>Email:</strong>{' '}
+            {email}
+          </CardText>
+        </CardBody>
+      </Card>
+    );
+  };
 
   const columns = useMemo(
     () => [
@@ -80,6 +102,7 @@ const AdminApp = () => {
       <TableContainer
         columns={columns}
         data={data}
+        renderRowSubComponent={renderRowSubComponent}
       />
     </Container>
   );
