@@ -20,6 +20,10 @@ app.use(cors());
 
 // routes
 app.use('/users', userRoutes)
+app.use('/connect', connectRoutes)
+app.use('/events', eventsRoutes)
+app.use('/discover', discoverRoutes)
+app.use('/polls', pollsRoutes)
 
 require('./connection')
 
