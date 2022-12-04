@@ -60,7 +60,23 @@ function Dashboard() {
             localStorage.setItem('allConnReq', JSON.stringify(data) );
 
         }
-        
+        fetchConnectionReqs()
+
+        const fetchConnections = async () => {
+            const raw = await fetch("http://localhost:5001/connect/getAllConnections", {
+                method: "POST",
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            const data = await raw.json();
+            setConnections(data)
+            console.log("fetchConnectionReqs ->", data)
+            localStorage.setItem('allConn', JSON.stringify(data) );
+
+        }
+        fetchConnections()
     }
 
     return (
