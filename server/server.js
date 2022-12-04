@@ -66,7 +66,13 @@ io.on('connection', (socket)=> {
     io.emit('new-user', members)
   })
 
-
+  socket.on('join-room', async(newRoom, previousRoom)=> {
+    socket.join(newRoom);
+    socket.leave(previousRoom);
+    let roomMessages = await getLastMessagesFromRoom(newRoom);
+    roomMessages = sortRoomMessagesByDate(roomMessages);
+    socket.emit('room-messages', roomMessages)
+  })
 
   socket.on('message-room', async(room, content, sender, time, date) => {
     const newMessage = await Message.create({content, from: sender, time, date, to: room});
