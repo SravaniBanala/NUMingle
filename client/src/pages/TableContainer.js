@@ -1,19 +1,28 @@
 import React, { Fragment } from 'react';
 import {
   useTable,
+  usePagination,
 } from 'react-table';
-import { Table, Row, Col } from 'reactstrap';
+import { Table, Row, Col, Button, Input, CustomInput } from 'reactstrap';
 
 const TableContainer = ({ columns, data, renderRowSubComponent }) => {
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-   
+    page,
+    prepareRow,
+    visibleColumns,
+    canPreviousPage,
+    canNextPage,
+    pageOptions,
+    setPageSize,
+    state: { pageIndex, pageSize },
   } = useTable(
     {
       columns,
       data,
+      initialState: { pageIndex: 0, pageSize: 10 },
     },
     useExpanded,
     usePagination
@@ -62,7 +71,32 @@ const TableContainer = ({ columns, data, renderRowSubComponent }) => {
         </tbody>
       </Table>
 
+      <Row style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center' }}>
+        <Col md={3}>
+          <Button
+            color='primary'
+            onClick={() => gotoPage(0)}
+            disabled={!canPreviousPage}
+          >
+            {'<<'}
+          </Button>
+          <Button
+            color='primary'
+            onClick={previousPage}
+            disabled={!canPreviousPage}
+          >
+            {'<'}
+          </Button>
+        </Col>
+        <Col md={2} style={{ marginTop: 7 }}>
+          Page{' '}
+          <strong>
+            {pageIndex + 1} of {pageOptions.length}
+          </strong>
+        </Col>
 
+
+      </Row>
     </Fragment>
   );
 };
