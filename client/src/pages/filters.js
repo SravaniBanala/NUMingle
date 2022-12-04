@@ -9,23 +9,23 @@ export const Filter = ({ column }) => {
   );
 };
 
-// export const DefaultColumnFilter = ({
-//   column: {
-//     filterValue,
-//     setFilter,
-//     preFilteredRows: { length },
-//   },
-// }) => {
-//   return (
-//     <Input
-//       value={filterValue || ''}
-//       onChange={(e) => {
-//         setFilter(e.target.value || undefined);
-//       }}
-//       placeholder={`search (${length}) ...`}
-//     />
-//   );
-// };
+export const DefaultColumnFilter = ({
+  column: {
+    filterValue,
+    setFilter,
+    preFilteredRows: { length },
+  },
+}) => {
+  return (
+    <Input
+      value={filterValue || ''}
+      onChange={(e) => {
+        setFilter(e.target.value || undefined);
+      }}
+      placeholder={`search (${length}) ...`}
+    />
+  );
+};
 
 export const SelectColumnFilter = ({
   column: { filterValue, setFilter, preFilteredRows, id },
