@@ -22,6 +22,16 @@ const AdminApp = () => {
     // };
     // doFetch();
 
+
+
+    const fetchAllUsers = async () => {
+      const raw = await fetch("http://localhost:5001/connect/getAllUsers", {method: "GET"})
+      const data = await raw.json();
+      // localStorage.setItem('allUsers', JSON.stringify(data) );
+
+  }
+  fetchAllUsers();
+
   }, []);
 
   const columns = useMemo(
