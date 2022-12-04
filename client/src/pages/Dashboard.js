@@ -26,7 +26,33 @@ function Dashboard() {
         localStorage.setItem('isChat', false);
         localStorage.setItem('isLobby', true);
     }
+    async function getPolls() {
+
+        console.log(" --- Sending getPollsChoices ---")
+        const raw = await fetch("http://localhost:5001/polls/getUserPollsChoices", {
+            method: "POST",
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        const data = await raw.json();
+        setPollsChoices(data)
     
+    }
+    async function getDiscover() {
+        console.log("USER->", user)
+        const raw = await fetch("http://localhost:5001/discover/getDiscoverList", {
+            method: "POST",
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        const data = await raw.json();
+        console.log("getDiscover resp -> ", data)
+        setDiscoverList(data)
+    }
     function fetchAllEvents() {
         const fetchAllEvents = async () => {
             const raw = await fetch("http://localhost:5001/events/getAllEvents", {method: "GET"})
@@ -129,8 +155,22 @@ function Dashboard() {
                             </div>
                         </LinkContainer>
                     </Col>
-                
-                      
+                    <Col md={3}>
+                        <LinkContainer to="/discover" onClick={getDiscover}>
+                            <div className="dashboard-tile">
+                                <i class="fa-solid fa-list fa-5x"></i>
+                                <h4 className="tile-title">Discover</h4> 
+                            </div>
+                        </LinkContainer>
+                    </Col>
+                    <Col md={3}>
+                        <LinkContainer to="/polls" onClick={getPolls}>
+                            <div className="dashboard-tile">
+                                <i class="fa-solid fa-square-poll-vertical fa-5x"></i>
+                                <h4 className="tile-title">Polls</h4> 
+                            </div>
+                        </LinkContainer>
+                    </Col>
 
                 </Row>
 
