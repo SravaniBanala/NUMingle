@@ -8,6 +8,25 @@ export const Filter = ({ column }) => {
     </div>
   );
 };
+
+export const DefaultColumnFilter = ({
+  column: {
+    filterValue,
+    setFilter,
+    preFilteredRows: { length },
+  },
+}) => {
+  return (
+    <Input
+      value={filterValue || ''}
+      onChange={(e) => {
+        setFilter(e.target.value || undefined);
+      }}
+      placeholder={`search (${length}) ...`}
+    />
+  );
+};
+
   // return (
   //   // <Input
   //   //   id='custom-select'
