@@ -27,8 +27,32 @@ function Dashboard() {
         localStorage.setItem('isLobby', true);
     }
     
-    
-    
+    function fetchAllEvents() {
+        const fetchAllEvents = async () => {
+            const raw = await fetch("http://localhost:5001/events/getAllEvents", {method: "GET"})
+            const data = await raw.json();
+            console.log("fetchAllEvents resp -> ", data)
+            setAllEvents(data)
+        }
+        fetchAllEvents()
+
+     
+        const fetchConnectionReqs = async () => {
+            const raw = await fetch("http://localhost:5001/connect/getAllConnectionRequests", {
+                method: "POST",
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            const data = await raw.json();
+            setconnectionReqs(data)
+            console.log("fetchConnectionReqs ->", data)
+            localStorage.setItem('allConnReq', JSON.stringify(data) );
+
+        }
+        
+    }
 
     return (
         <div>
