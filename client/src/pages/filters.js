@@ -27,6 +27,17 @@ export const DefaultColumnFilter = ({
   );
 };
 
+export const SelectColumnFilter = ({
+  column: { filterValue, setFilter, preFilteredRows, id },
+}) => {
+  const options = React.useMemo(() => {
+    const options = new Set();
+    preFilteredRows.forEach((row) => {
+      options.add(row.values[id]);
+    });
+    return [...options.values()];
+  }, [id, preFilteredRows]);
+
   // return (
   //   // <Input
   //   //   id='custom-select'
