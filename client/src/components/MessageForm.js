@@ -25,7 +25,31 @@ function MessageForm() {
 
         return month + "/" + day + "/" + year;
     }
-    
+
+    function handleSubmit(e) {
+        e.preventDefault();
+    }
+
+    function scrollToBottom() {
+        messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+
+    const todayDate = getFormattedDate();
+
+    socket.off("room-messages").on("room-messages", (roomMessages) => {
+        setMessages(roomMessages);
+    });
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        if (!message) return;
+        const today = new Date();
+        const minutes = today.getMinutes() < 10 ? "0" + today.getMinutes() : today.getMinutes();
+        const time = today.getHours() + ":" + minutes;
+        const roomId = currentRoom;
+        socket.emit("message-room", roomId, message, user, time, todayDate);
+        setMessage("");
+    }
     return (
         <>
             <div className="messages-output">
