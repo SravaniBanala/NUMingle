@@ -17,6 +17,35 @@ const getUserPollsChoices = async (req, res) => {
     res.json(pollsCoices)
 }
 
+const storeChoice = async (req, res) => {
+    console.log("-- In storeChoice --")
+    const {user, value, poll} = req.body
+    const curUser = await User.findById(user._id);
+    const curPoll = await Poll.findById(poll._id);
+    curUser.pollChoice[curPoll._id] = value
+    await User.updateOne({_id: user._id},curUser)
+
+    res.json(curUser.pollChoice)
+}
+const incrementChoiceCount = async (req, res) => {
+    console.log("-- In incrementChoiceCount --")
+    const {user, value, poll} = req.body
+    const curPoll = await Poll.findById(poll._id);
+    const curUser = await User.findById(user._id);
+    curPoll.options.map((o) => {
+        if(o[0] == value){
+            o[1] += 1
+        }
+        if(o[0] == curUser.pollChoice[curPoll._id]){
+            o[1] -= 1
+        }
+    })
+    await Poll.updateOne({_id: poll._id},curPoll)    
+
+    const newPoll = await Poll.find();
+    res.json(newPoll)
+}
+
 const addPoll = async (req, res) => {
     try {
         const {title, description, options} = req.body;
