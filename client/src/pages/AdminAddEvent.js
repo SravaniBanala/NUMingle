@@ -2,13 +2,21 @@ import React, { useState, useContext } from "react";
 import { Col, Container, Form, Row, Button, Dropdown, DropdownButton } from "react-bootstrap";
 import "./AdminAddEvent.css";
 import { AppContext } from "../context/appContext";
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 function AdminAddEvent() {
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyCj4iJvd7Ir_ck6Pxj08v7MTF2MlPDhA0o",
+  });
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [mapCordinates, setMapCordinates] = useState(null);
+
+  const center = { lat: 42.3402146, lng: -71.0893039 }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -36,6 +44,12 @@ function AdminAddEvent() {
   setDescription("")
   setDate("")
   setTime("")
+  setMapCordinates(null)
+  }
+
+  function handleMapClick(e){
+    const selectedLocation = { lat: e.latLng.lat(), lng: e.latLng.lng() }
+    setMapCordinates(selectedLocation)
   }
 
   if (!isLoaded) return <div>Loading...</div>;
@@ -61,6 +75,9 @@ function AdminAddEvent() {
         <label >
           Select Location
         </label>
+        <GoogleMap zoom={10} center={mapCordinates||center} mapContainerClassName="map-container" onClick={(e)=>{handleMapClick(e)}}>
+            <Marker position={mapCordinates} />     
+        </GoogleMap>
 
         <label className="lbl-date">
           Event Date
