@@ -31,3 +31,9 @@
     cursor: pointer;
     z-index: 99;
 }
+.signup-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
