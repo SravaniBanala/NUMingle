@@ -4,7 +4,9 @@ const Poll = require('../models/Poll');
 
 
 const getAllPolls = async (req, res) => {
-    
+    const allPolls = await Poll.find();
+    //console.log("allPolls ---", allPolls)
+    res.json(allPolls)
 }
 
 
