@@ -1,7 +1,35 @@
 const User = require('../models/User');
 const Event = require('../models/Event');
 
+const getDiscoverList = async (req, res) => {
+    const userInp = req.body
+    const user = await User.findById(userInp._id);
+    const discoverListRaw = user.discover
+    const result = []
+    await Promise.all(
+        discoverListRaw.map(async (dis) =>  {
+            let resultObj = {}
+            if (dis.type == "connection"){
+                resultObj.type = "connection"
+                const user1 = await User.findById(dis.connectedBy);
+                const user2 = await User.findById(dis.connectedTo);
+                resultObj.connectedBy = user1
+                resultObj.connectedTo = user2
+            }
+            if (dis.type == "event"){
+                resultObj.type = "event"
+                const event = await Event.findById(dis.eventid);
+                const user = await User.findById(dis.registeredBy);
+                resultObj.event = event
+                resultObj.registeredBy = user
+            }
+            result.push(resultObj)
+        })
+    )
 
+    res.json(result)
+
+}
 
 // const registerEvent = async (req, res) => {
 //     const {event, user} = req.body
