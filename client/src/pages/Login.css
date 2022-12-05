@@ -1,0 +1,16 @@
+.login__bg {
+    /* background-image: url(https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80); */
+    background-image: url('../assets/neu_logo.jpeg');
+    height: 92vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    border-radius: 10px;
+}
+
+.login-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

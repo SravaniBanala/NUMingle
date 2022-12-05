@@ -1,0 +1,27 @@
+
+.dashboard-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-tile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px black;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    width: 250px;
+    height: 220px;
+
+}
+
+.tile-title{
+    margin-left:20px;
+}
+
+.logout-btn{
+    width: 100%;
+}
