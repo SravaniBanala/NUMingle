@@ -16,3 +16,11 @@
     height: 220px;
 
 }
+
+.tile-title{
+    margin-left:20px;
+}
+
+.logout-btn{
+    width: 100%;
+}

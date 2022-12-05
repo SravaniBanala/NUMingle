@@ -4,6 +4,7 @@ const {getAllEvents, registerEvent, addEvent } = require('../controllers/eventsC
 
 
 router.get('/getAllEvents', getAllEvents)
+router.post('/registerEvent', registerEvent)
 router.post('/addEvent', addEvent)
 
 
