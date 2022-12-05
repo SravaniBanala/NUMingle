@@ -7,6 +7,19 @@ Chart.register(...registerables);
 
 function PollsChart({curPoll}) {
 
+    const labelsArr = [
+        curPoll.options[0][0],
+        curPoll.options[1][0],
+        curPoll.options[2][0],
+        curPoll.options[3][0],
+    ]
+    const dataArr = [
+        curPoll.options[0][1],
+        curPoll.options[1][1],
+        curPoll.options[2][1],
+        curPoll.options[3][1],
+    ]
+
   return (
     <div>
 
