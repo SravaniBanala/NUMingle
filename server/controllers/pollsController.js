@@ -8,7 +8,14 @@ const getAllPolls = async (req, res) => {
     //console.log("allPolls ---", allPolls)
     res.json(allPolls)
 }
+const getUserPollsChoices = async (req, res) => {
 
+    const userInp = req.body
+    const user = await User.findById(userInp._id);
+    const pollsCoices = user.pollChoice
+    console.log("pollsCoices---", pollsCoices)
+    res.json(pollsCoices)
+}
 
 const addPoll = async (req, res) => {
     try {
@@ -23,5 +30,5 @@ const addPoll = async (req, res) => {
       }
 }
 
-module.exports = {getAllPolls, addPoll} 
+module.exports = {getAllPolls, storeChoice, incrementChoiceCount, getUserPollsChoices, addPoll} 
 
