@@ -17,6 +17,14 @@ const UserSchema = new mongoose.Schema({
     //required: [true, "Can't be blank"]
   },
   
+  status: {
+    type: String,
+    default: 'online'
+  },
+  connections: {
+    type: Array,
+    default: []
+  },
   connectionRequests: {
     type: Array,
     default: []
@@ -54,6 +62,21 @@ UserSchema.pre('save', function(next){
 })
 
 
+UserSchema.methods.toJSON = function(){
+  const user = this;
+  const userObject = user.toObject();
+  delete userObject.password;
+  return userObject;
+}
+
+UserSchema.statics.findByCredentials = async function(email, password) {
+  const user = await User.findOne({email});
+  if(!user) throw new Error('invalid email or password');
+
+  const isMatch = await bcrypt.compare(password, user.password);
+  if(!isMatch) throw new Error('invalid email or password')
+  return user
+}
 
 
 const User = mongoose.model('User', UserSchema);
