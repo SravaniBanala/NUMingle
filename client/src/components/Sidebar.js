@@ -17,7 +17,8 @@ function Sidebar() {
         if (!user) {
             return alert("Please login");
         }
-      
+        socket.emit("join-room", room, currentRoom);
+        setCurrentRoom(room);
 
         if (isPublic) {
             setPrivateMemberMsg(null);
@@ -26,7 +27,9 @@ function Sidebar() {
         dispatch(resetNotifications(room));
     }
 
-    
+    socket.off("notifications").on("notifications", (room) => {
+        if (currentRoom != room) dispatch(addNotifications(room));
+    });
 
     useEffect(() => {
         if (user) {
@@ -37,9 +40,15 @@ function Sidebar() {
         }
     }, []);
 
-    
+    socket.off("new-user").on("new-user", (payload) => {
+        setMembers(payload);
+    });
 
- 
+    function getRooms() {
+        fetch("http://localhost:5001/rooms")
+            .then((res) => res.json())
+            .then((data) => setRooms(data));
+    }
 
     function orderIds(id1, id2) {
         if (id1 > id2) {
