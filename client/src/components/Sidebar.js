@@ -17,7 +17,8 @@ function Sidebar() {
         if (!user) {
             return alert("Please login");
         }
-        
+      
+
         if (isPublic) {
             setPrivateMemberMsg(null);
         }
@@ -25,7 +26,7 @@ function Sidebar() {
         dispatch(resetNotifications(room));
     }
 
-   
+    
 
     useEffect(() => {
         if (user) {
@@ -36,9 +37,23 @@ function Sidebar() {
         }
     }, []);
 
-   
-
     
+
+ 
+
+    function orderIds(id1, id2) {
+        if (id1 > id2) {
+            return id1 + "-" + id2;
+        } else {
+            return id2 + "-" + id1;
+        }
+    }
+
+    function handlePrivateMemberMsg(member) {
+        setPrivateMemberMsg(member);
+        const roomId = orderIds(user._id, member._id);
+        joinRoom(roomId, false);
+    }
 
     if (!user) {
         return <></>;
