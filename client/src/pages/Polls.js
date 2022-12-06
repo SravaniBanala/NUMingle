@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import './Polls.css'
+import PollsChart from '../components/PollsChart'
  
+
 function Polls() {
 
     console.log("In Polls")
@@ -86,6 +88,11 @@ function Polls() {
                                     </div>
                                 ))}
                                 </fieldset>
+                            </Col>
+                            <Col md={6}>
+                                <PollsChart 
+                                curPoll = {p}
+                                />
                             </Col>
                         </Row>
 

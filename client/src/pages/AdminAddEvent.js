@@ -48,7 +48,8 @@ function AdminAddEvent() {
   }
 
   function handleMapClick(e){
-
+    const selectedLocation = { lat: e.latLng.lat(), lng: e.latLng.lng() }
+    setMapCordinates(selectedLocation)
   }
 
   if (!isLoaded) return <div>Loading...</div>;

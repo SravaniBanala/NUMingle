@@ -25,6 +25,13 @@ function AdminAddPoll() {
       options: options
     }
 
+    const raw = await fetch("http://localhost:5001/polls/addPoll", {
+      method: "POST",
+      headers:{
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+  })
   const data = await raw.json();
   console.log("Add Event resp -> ", data)
   alert("Poll created Succesfuly")
