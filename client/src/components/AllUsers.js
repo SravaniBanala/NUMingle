@@ -15,6 +15,23 @@ function AllUsers() {
             sender: user,
             receiver: member
         }
+        const connectUsers = async () => {
+            const raw = await fetch("http://localhost:5001/connect/createConnectionReq", {
+                method: "POST",
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            const data = await raw.json();
+            if (data.hasOwnProperty('err')) {
+                alert(data.err)
+            }
+            else{
+                alert("Connection request successfully sent")
+            }
+        }
+        connectUsers()
     }
 
     return (
