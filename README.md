@@ -43,10 +43,17 @@ NU mingle has several functionalities through which students can communicate via
 
 
 1. Login and Signup :  Signup functionality is used for the  students who are first time users to Nu mingle. Students have to provide their details such as name,NUID,email and set password for their login. Login Functionality used for logging by Admin and students.
-<img width="1436" alt="Screenshot 2022-12-08 at 4 02 07 AM" src="https://user-images.githubusercontent.com/113041935/206477641-9566f317-0eb2-4972-b869-26d42282143b.png">
+
+<img width="800" alt="Screenshot 2022-12-08 at 4 02 07 AM" src="https://user-images.githubusercontent.com/113041935/206477641-9566f317-0eb2-4972-b869-26d42282143b.png">
+
+<img width="800" alt="Screenshot 2022-12-08 at 4 04 58 AM" src="https://user-images.githubusercontent.com/113041935/206477975-08a8f806-fc5c-4ea4-a359-2820dfe32b78.png">
 
 
 2. Connect : Connect functionality is used for northeastern students to connect with the peers and course colleagues. Students can send the connection requests to the students whom they wish to connect.On the basis of that they can expand their network.
+
+
+
+
 
 3. Chat Lobby : Chat functionality is a messaging platform through which students can communicate with their connections. Student's will be able to fetch and post messages to their connections.
 
