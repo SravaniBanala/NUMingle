@@ -4,7 +4,7 @@ import { Nav, Navbar, Container, Button, NavDropdown, Row, Col } from "react-boo
 import { LinkContainer } from "react-router-bootstrap";
 import profile_img from "../assets/profile.png";
 import { useSelector } from "react-redux";
-import './Dashboard.css'
+import './Dashboard.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 

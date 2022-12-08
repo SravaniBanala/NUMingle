@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Col, Container, Form, Row, Button, Dropdown, DropdownButton } from "react-bootstrap";
 import { useSignupUserMutation } from "../services/appApi";
 import { Link, useNavigate } from "react-router-dom";
-import "./Signup.css";
+import "./Signup.scss";
 import profile_img from "../assets/profile_img.jpeg";
 import { AppContext } from "../context/appContext";
 

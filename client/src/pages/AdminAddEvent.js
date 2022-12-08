@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Col, Container, Form, Row, Button, Dropdown, DropdownButton } from "react-bootstrap";
-import "./AdminAddEvent.css";
+import "./AdminAddEvent.scss";
 import { AppContext } from "../context/appContext";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 

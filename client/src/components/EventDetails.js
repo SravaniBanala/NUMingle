@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import './EventDetails.css'
+import './EventDetails.scss'
 import { AppContext } from "../context/appContext";
 import { useSelector } from "react-redux";
 import { GoogleMap, useLoadScript, Marker, useJsApiLoader, DirectionsRenderer } from "@react-google-maps/api";

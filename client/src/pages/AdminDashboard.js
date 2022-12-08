@@ -4,7 +4,7 @@ import { Nav, Navbar, Container, Button, NavDropdown, Row, Col } from "react-boo
 import { LinkContainer } from "react-router-bootstrap";
 import profile_img from "../assets/profile.png";
 import { useSelector } from "react-redux";
-import './Dashboard.css'
+import './Dashboard.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
@@ -130,6 +130,14 @@ function AdminDashboard() {
                             <div className="dashboard-tile">
                                 <i class="fa-solid fa-square-poll-vertical fa-5x"></i>
                                 <h4 className="tile-title">Poll Results</h4>
+                            </div>
+                        </LinkContainer>
+                    </Col>
+                    <Col md={3}>
+                        <LinkContainer to="/allStudents">
+                            <div className="dashboard-tile">
+                            <i class="fa-solid fa-users fa-5x"></i>
+                                <h4>All Students</h4> 
                             </div>
                         </LinkContainer>
                     </Col>

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { AppContext } from "../context/appContext";
 import { useSelector } from "react-redux";
-import './AllEvents.css'
+import './AllEvents.scss'
 
 
 function AllEvents() {

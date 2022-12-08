@@ -3,7 +3,7 @@ import { Col, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { AppContext } from "../context/appContext";
 import { addNotifications, resetNotifications } from "../features/userSlice";
-import "./Sidebar.css";
+import "./Sidebar.scss";
 
 function Sidebar() {
     console.log("in Sidebar")

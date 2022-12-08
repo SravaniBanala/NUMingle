@@ -3,7 +3,7 @@ import { AppContext } from "../context/appContext";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import './Polls.css'
+import './Polls.scss'
 import PollsChart from '../components/PollsChart'
  
 

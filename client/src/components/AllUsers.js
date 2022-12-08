@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { AppContext } from "../context/appContext";
 import { useSelector } from "react-redux";
-import './AllUsers.css'
+import './AllUsers.scss'
 
 function AllUsers() {
     console.log("In AllUsers")

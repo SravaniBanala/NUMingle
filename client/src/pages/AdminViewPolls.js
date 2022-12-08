@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../context/appContext";
 import { Container, Row, Col } from "react-bootstrap";
-import './Polls.css'
+import './Polls.scss'
 import PollsChart from '../components/PollsChart'
 
 

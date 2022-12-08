@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { AppContext } from "../context/appContext";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import './Discover.css'
+import './Discover.scss'
 
 function Discover() {
 

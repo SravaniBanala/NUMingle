@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Home from "./pages/Home";
@@ -18,6 +18,7 @@ import Polls from "./pages/Polls";
 import Profile from "./pages/Profile";
 import Calender from "./pages/Calender";
 import AdminViewPolls from "./pages/AdminViewPolls";
+import AdminApp from "./pages/AdminApp";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { AppContext, socket } from "./context/appContext";
@@ -163,6 +164,7 @@ function App() {
                     <Route path="/addEvent" element={<AdminAddEvent />} />
                     <Route path="/addPoll" element={<AdminAddPoll />} />
                     <Route path="/adminViewPolls" element={<AdminViewPolls />} />
+                    <Route path="/allStudents" element={<AdminApp />} />
 
                 </Routes>
             </BrowserRouter>
