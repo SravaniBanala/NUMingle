@@ -72,7 +72,6 @@ NU mingle has several functionalities through which students can communicate via
 
 
 5. Career  Lobby : Carrer functionality is a messaging platform through which students can communicate with the existing career discussion groups.
-6. 
 
 ![MicrosoftTeams-image](https://user-images.githubusercontent.com/113041935/206480127-640bbbc9-c990-422d-8635-5c525dfbbda4.png)
 
@@ -103,7 +102,7 @@ NU mingle has several functionalities through which students can communicate via
 
 
 9. Student's Data: All the registered student's on the portal data has been stored here.
-10. 
+
 
 <img width="822" alt="Screenshot 2022-12-08 at 10 04 04 AM" src="https://user-images.githubusercontent.com/113041935/206481138-ddc2f227-6ff0-4010-9dd5-728d7fa54e1b.png">
 
