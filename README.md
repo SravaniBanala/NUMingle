@@ -8,13 +8,13 @@ Team Members -
 
 
 -----------------------------------------------------------------------------------------------------------------
-## Project Description:
+##Project Description:
 
 Northeastern provides the platform to interact and to connect so that motivated us to implement a app for northeastern where students can connect with each other.This application will help student to get the highlights about events, friend’s updates and make them mingle with each other. The idea is to develop a website which will allow Northeastern Student to interact and collaborate with their peers seek guidance. All users can join discussion clubs of their interest. Students can plain their task and register for recommended events through Calendar Interface. Regular polls on various topics related to the university, event registration and navigation , discussion chat groups, connections with other students.
 
 
 -------------------------------------------------------------------------------------------------------------------
-## Installation Guide:
+##Installation Guide:
 
 ->Clone the git repository in a directory or download zip package and extract it
 
@@ -43,6 +43,7 @@ NU mingle has several functionalities through which students can communicate via
 
 
 1. Login and Signup :  Signup functionality is used for the  students who are first time users to Nu mingle. Students have to provide their details such as name,NUID,email and set password for their login. Login Functionality used for logging by Admin and students.
+![Uploading Screenshot 2022-12-08 at 4.02.07 AM.png…]()
 
 2. Connect : Connect functionality is used for northeastern students to connect with the peers and course colleagues. Students can send the connection requests to the students whom they wish to connect.On the basis of that they can expand their network.
 
@@ -95,7 +96,7 @@ As an Admin:
 
 
 ---------------------------------------------------------------------------------------------------------------------
-## Technology Stack :
+Technology Stack :
 
 1. MONGODB
 2. EXPRESS
