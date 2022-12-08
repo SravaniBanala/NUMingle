@@ -35,7 +35,9 @@ const appApi = createApi({
                 method: "DELETE",
                 body: payload,
             }),
-        }),
+        })
+
+
     }),
 });
 
