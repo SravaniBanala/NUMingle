@@ -6,6 +6,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { AppContext } from "../context/appContext";
 import logo from "../assets/logo.png";
 
+
 function Navigation() {
     const user = useSelector((state) => state.user);
     const { isAdmin, setIsAdmin } = useContext(AppContext);
@@ -24,7 +25,7 @@ function Navigation() {
         window.location.replace("/");
     }
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" expand="lg" className="navbar">
             <Container>
                 <LinkContainer to="/">
                     <Navbar.Brand>
@@ -41,7 +42,7 @@ function Navigation() {
                         )} */}
                         {user && (
                             <LinkContainer to="/dashboard">
-                                <Nav.Link>Dashboard</Nav.Link>
+                                <Nav.Link> <span className="navbar-color dashboard-title">Dashboard</span> </Nav.Link>
                             </LinkContainer>
                         )}
                         {/* <LinkContainer to="/chat">
@@ -49,7 +50,7 @@ function Navigation() {
                         </LinkContainer> */}
                         {isAdmin && (
                             <LinkContainer to="/dashboardAdmin">
-                                <Nav.Link>Dashboard</Nav.Link>
+                                <Nav.Link><span className="navbar-color dashboard-title">Dashboard</span></Nav.Link>
                             </LinkContainer>
                         )
 
@@ -59,7 +60,7 @@ function Navigation() {
                             <NavDropdown
                                 title={
                                     <>
-                                        Admin
+                                        <span className="navbar-color">Admin</span>
                                     </>
                                 }
                                 id="basic-nav-dropdown"
@@ -76,7 +77,7 @@ function Navigation() {
                                 title={
                                     <>
                                         <img src={user.picture} style={{ width: 30, height: 30, marginRight: 10, objectFit: "cover", borderRadius: "50%" }} />
-                                        {user.name}
+                                        <span className="navbar-color">{user.name}</span>
                                     </>
                                 }
                                 id="basic-nav-dropdown"

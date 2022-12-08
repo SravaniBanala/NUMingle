@@ -22,6 +22,30 @@ router.post('/', async(req, res)=> {
   }
 })
 
+router.post('/update', async(req, res)=> {
+  try {
+    const {user, name, email} = req.body;
+    console.log("update inp", req.body);
+    const userdb = await User.findById(user._id);
+
+    userdb.name = name
+    userdb.email = email
+
+    const updated = await userdb.save()
+    console.log("update ->", updated);
+    res.status(201).json(updated);
+  } catch (e) {
+    let msg;
+    if(e.code == 11000){
+      msg = "Error Occured"
+    } else {
+      msg = e.message;
+    }
+    console.log(e);
+    res.status(400).json(msg)
+  }
+})
+
 // login user
 
 router.post('/login', async(req, res)=> {

@@ -23,7 +23,7 @@ function Login() {
         }
         // login for admin
         if (type == "Admin") {
-            if(email == "admin@123.com" && password == "12345"){
+            if(email == "admin@northeastern.edu" && password == "admin"){
                 setIsAdmin(true)
                 localStorage.setItem('loggedinAs', "Admin");
                 navigate("/dashboardAdmin");

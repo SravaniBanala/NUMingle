@@ -8,11 +8,11 @@ import './Dashboard.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-function Dashboard() {
+function AluminiDashboard() {
     console.log("In Dashboard")
     const user = useSelector((state) => state.user);
     const { isChat, setIsChat, isLobby, setIsLobby, setAllUsers, allUsers, setConnections, setconnectionReqs,
-    setAllEvents, setDiscoverList, setPollsChoices, calenderEvents, setCalenderEvents, currentEvent } = useContext(AppContext);
+    setAllEvents, setDiscoverList } = useContext(AppContext);
 
     function setChat() {
         setIsChat(true);
@@ -26,34 +26,8 @@ function Dashboard() {
         localStorage.setItem('isChat', false);
         localStorage.setItem('isLobby', true);
     }
-    async function setCalenderEventsHandler() {
-        const raw = await fetch("http://localhost:5001/events/getAllEvents", {method: "GET"})
-        const data = await raw.json();
-        const result = []
-        data.map(async (event) =>  {
-            const eventObj = {
-                title: event.title,
-                start: event.date.substring(0,10),
-                end: event.date.substring(0,10),
-            }
-            result.push(eventObj)
-            
-        })
-        setCalenderEvents(result)
-    }
-    async function getPolls() {
+    function getPolls() {
 
-        console.log(" --- Sending getPollsChoices ---")
-        const raw = await fetch("http://localhost:5001/polls/getUserPollsChoices", {
-            method: "POST",
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        })
-        const data = await raw.json();
-        setPollsChoices(data)
-    
     }
     async function getDiscover() {
         console.log("USER->", user)
@@ -121,9 +95,9 @@ function Dashboard() {
     }
 
     return (
-        <div >
-            <div className="dashboard-title"> 
-                <h1>Dashboard</h1>
+        <div>
+            <div className="dashboard-title">
+                <h1>Alumini Dashboard</h1>
             </div>
             <Container className="dashboard-container">
                 <Row md={3}>
@@ -139,7 +113,7 @@ function Dashboard() {
                         <LinkContainer to="/chat" onClick={setChat}>
                             <div className="dashboard-tile">
                                 <i class="fa-regular fa-comments fa-5x"></i>
-                                <h4 className="tile-title">Chat</h4>
+                                <h4>Chat</h4>
                             </div>
                         </LinkContainer>
                     </Col>
@@ -147,27 +121,26 @@ function Dashboard() {
                         <LinkContainer to="/alumini" onClick={setLobby}>
                             <div className="dashboard-tile">
                                 <i class="fa-solid fa-users fa-5x"></i>
-                                <h4 className="tile-title">Career Lobby</h4> 
+                                <h4>Alumini Lobby</h4> 
                             </div>
                         </LinkContainer>    
-                    </Col>
-                    <Col md={3}>
-                        <LinkContainer to="/events" onClick={fetchAllEvents}>
-                            <div className="dashboard-tile">
-                                <i class="fa-solid fa-magnifying-glass-location fa-5x"></i>
-                                <h4 className="tile-title">Events</h4> 
-                            </div>
-                        </LinkContainer>
                     </Col>
                 </Row>
                 
                 <Row md={3}>
-
+                    <Col md={3}>
+                        <LinkContainer to="/events" onClick={fetchAllEvents}>
+                            <div className="dashboard-tile">
+                                <i class="fa-solid fa-magnifying-glass-location fa-5x"></i>
+                                <h4>Events</h4> 
+                            </div>
+                        </LinkContainer>
+                    </Col>
                     <Col md={3}>
                         <LinkContainer to="/discover" onClick={getDiscover}>
                             <div className="dashboard-tile">
                                 <i class="fa-solid fa-list fa-5x"></i>
-                                <h4 className="tile-title">Discover</h4> 
+                                <h4>Discover</h4> 
                             </div>
                         </LinkContainer>
                     </Col>
@@ -175,26 +148,11 @@ function Dashboard() {
                         <LinkContainer to="/polls" onClick={getPolls}>
                             <div className="dashboard-tile">
                                 <i class="fa-solid fa-square-poll-vertical fa-5x"></i>
-                                <h4 className="tile-title">Polls</h4> 
+                                <h4>Polls</h4> 
                             </div>
                         </LinkContainer>
                     </Col>
-                    <Col md={3}>
-                        <LinkContainer to="/calender" onClick={setCalenderEventsHandler}>
-                            <div className="dashboard-tile">
-                                <i class="fa-regular fa-calendar-days fa-5x"></i>
-                                <h4 className="tile-title">Calender</h4> 
-                            </div>
-                        </LinkContainer>
-                    </Col>
-                    <Col md={3}>
-                        <LinkContainer to="/profile" >
-                            <div className="dashboard-tile">
-                                <i class="fas fa-edit fa-5x"></i>
-                                <h4 className="tile-title">Update Profile</h4>
-                            </div>
-                        </LinkContainer>
-                    </Col>
+
                 </Row>
 
 
@@ -204,4 +162,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default AluminiDashboard;

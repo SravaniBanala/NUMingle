@@ -5,7 +5,7 @@ require('dotenv').config();
 //   console.log('connected to mongodb')
 // })
 
-mongoose.connect(`mongodb://localhost:27017/temp_2`, ()=> {
+mongoose.connect(`mongodb://localhost:27017/nu_mingle`, ()=> {
   console.log('connected to mongodb')
 })
 //mongodb+srv://Numingle:Numingle@123@cluster0.7jlpucw.mongodb.net/?retryWrites=true&w=majority
