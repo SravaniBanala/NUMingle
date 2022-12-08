@@ -51,6 +51,7 @@ NU mingle has several functionalities through which students can communicate via
 
 2. Connect : Connect functionality is used for northeastern students to connect with the peers and course colleagues. Students can send the connection requests to the students whom they wish to connect.On the basis of that they can expand their network.
 
+![MicrosoftTeams-image (1)](https://user-images.githubusercontent.com/113041935/206479508-98ac0e0e-a8ed-4876-bac8-5668045681c2.png)
 
 
 
